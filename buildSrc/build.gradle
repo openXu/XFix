@@ -1,0 +1,22 @@
+apply plugin: 'groovy'
+compileGroovy {
+    sourceCompatibility = 1.8
+    targetCompatibility = 1.8
+}
+repositories {
+    mavenCentral()  //指定maven仓库，用于下载javassist库
+    google()
+
+}
+dependencies {
+    //依赖gradle、groovy的api，用于编写gradle插件
+    implementation gradleApi()
+    implementation localGroovy()
+    //依赖android gradle插件包，以使用Transform API
+    implementation 'com.android.tools.build:gradle:4.2.2'
+    //javassist操作class字节码 https://mvnrepository.com/    Javassist
+    implementation 'org.javassist:javassist:3.26.0-GA'
+
+//    compile 'com.meituan.robust:autopatchbase:' + VERSION_NAME
+//    implementation project(":fix-libs")
+}

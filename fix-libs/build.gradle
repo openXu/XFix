@@ -1,0 +1,32 @@
+plugins {
+    id 'com.android.library'
+}
+
+android {
+    compileSdkVersion 30
+    defaultConfig {
+        minSdkVersion 21
+        targetSdkVersion 30
+        versionCode 1
+        versionName "1.0"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    //★ 配置ndk：local.properties中配置ndk.dir已经被淘汰，应该在android闭包下配置ndkVersion
+    ndkVersion "22.1.7171670"
+
+    externalNativeBuild {
+        cmake {
+            path "CMakeLists.txt"    //指定cmake脚本位置
+        }
+    }
+}

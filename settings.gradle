@@ -1,0 +1,3 @@
+rootProject.name = "XFix"
+include ':app'
+include ':fix-libs'
